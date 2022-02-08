@@ -1,23 +1,37 @@
 {
-  "name": "smelly-tic-tac-toe-kata",
+  "name": "smelly-tic-tac-toe",
   "version": "1.0.0",
   "description": "Smelly TicTacToe in TypeScript",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "test": "jest --passWithNoTests",
-    "clean": "rm -rf build"
+    "lint:fix": "ts-standard --fix",
+    "test": "ts-standard && jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabrielnz/smelly-tic-tac-toe.git"
+  },
+  "keywords": [
+    "kata",
+    "typescript",
+    "template"
+  ],
+  "author": "gnunez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gabrielnz/smelly-tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/Gabrielnz/smelly-tic-tac-toe#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.4.6",
+    "jest": "^27.4.7",
+    "ts-standard": "*",
+    "typescript": "<4.5.0"
   },
   "dependencies": {
-    "ts-node": "^8.7.0",
-    "tslib": "^1.7.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^25.1.4",
-    "@types/node": "^7.10.9",
-    "jest": "^25.1.0",
-    "ts-jest": "^25.2.1",
-    "typescript": "^2.9.2"
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.0"
   }
 }

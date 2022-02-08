@@ -4,7 +4,7 @@
   "description": "Smelly TicTacToe in TypeScript",
   "scripts": {
     "lint:fix": "ts-standard --fix",
-    "test": "ts-standard && jest --watch"
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",

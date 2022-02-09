@@ -37,8 +37,8 @@ export class Game {
     return player === this.lastPlayer
   }
 
-  private playerToMoveIsO(symbol: Player) {
-    return symbol === Player.O
+  private playerToMoveIsO(player: Player) {
+    return player === Player.O
   }
 
   private isFirstMove() {
@@ -50,7 +50,7 @@ export class Game {
     if (this.board.TileAt(0, 0)!.player !== Player.None &&
                 this.board.TileAt(0, 1)!.player !== Player.None &&
                 this.board.TileAt(0, 2)!.player !== Player.None) {
-      // if first row is full with same symbol
+      // if first row is full with same player
       if (this.board.TileAt(0, 0)!.player ===
                     this.board.TileAt(0, 1)!.player &&
                     this.board.TileAt(0, 2)!.player === this.board.TileAt(0, 1)!.player) {
@@ -62,7 +62,7 @@ export class Game {
     if (this.board.TileAt(1, 0)!.player !== Player.None &&
                 this.board.TileAt(1, 1)!.player !== Player.None &&
                 this.board.TileAt(1, 2)!.player !== Player.None) {
-      // if middle row is full with same symbol
+      // if middle row is full with same player
       if (this.board.TileAt(1, 0)!.player ===
                     this.board.TileAt(1, 1)!.player &&
                     this.board.TileAt(1, 2)!.player ===
@@ -75,7 +75,7 @@ export class Game {
     if (this.board.TileAt(2, 0)!.player !== Player.None &&
                 this.board.TileAt(2, 1)!.player !== Player.None &&
                 this.board.TileAt(2, 2)!.player !== Player.None) {
-      // if middle row is full with same symbol
+      // if middle row is full with same player
       if (this.board.TileAt(2, 0)!.player ===
                     this.board.TileAt(2, 1)!.player &&
                     this.board.TileAt(2, 2)!.player ===

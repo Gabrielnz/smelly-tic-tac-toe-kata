@@ -13,11 +13,11 @@ export class Game {
       }
     }
     // if not first move but player repeated
-    else if (symbol === this._lastSymbol) {
+    if (symbol === this._lastSymbol) {
       throw new Error('Invalid next player')
     }
     // if not first move but play on an already played tile
-    else if (this._board.TileAt(x, y).Symbol !== ' ') {
+    if (this._board.TileAt(x, y).Symbol !== ' ') {
       throw new Error('Invalid position')
     }
 

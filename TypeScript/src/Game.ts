@@ -18,13 +18,18 @@ export class Game {
     if (this.isFirstMove() && this.playerToMoveIsO(player)) {
       throw new Error('Invalid first player')
     }
+    
     if (this.playerIsRepeated(player)) {
       throw new Error('Invalid next player')
     }
-    // if not first move but play on an already played tile
-    if (this.board.TileAt(x, y).Symbol !== ' ') {
+
+    if (this.tileIsAlreadyPlayed(x, y)) {
       throw new Error('Invalid position')
     }
+  }
+
+  private tileIsAlreadyPlayed(x: number, y: number) {
+    return this.board.TileAt(x, y).Symbol !== ' '
   }
 
   private playerIsRepeated(player: string) {

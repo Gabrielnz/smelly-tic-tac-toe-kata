@@ -84,7 +84,7 @@ export class Game {
       }
     }
 
-    return ' '
+    return Player.None
   }
 }
 

@@ -14,12 +14,12 @@ export class Game {
     this.board.AddTileAt(player, x, y)
   }
 
-  private checkThatMoveIsValid(playerToMove: string, x: number, y: number) {
-    if (this.isFirstMove() && this.playerToMoveIsO(playerToMove)) {
+  private checkThatMoveIsValid(player: string, x: number, y: number) {
+    if (this.isFirstMove() && this.playerToMoveIsO(player)) {
       throw new Error('Invalid first player')
     }
     // if not first move but player repeated
-    if (playerToMove === this.lastPlayer) {
+    if (player === this.lastPlayer) {
       throw new Error('Invalid next player')
     }
     // if not first move but play on an already played tile

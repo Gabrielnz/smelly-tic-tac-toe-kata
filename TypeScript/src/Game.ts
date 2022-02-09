@@ -5,6 +5,13 @@ export class Game {
   private readonly _board: Board = new Board()
 
   public Play (symbol: string, x: number, y: number): void {
+    this.checkThatMoveIsValid(symbol, x, y)
+    // update game state
+    this._lastSymbol = symbol
+    this._board.AddTileAt(symbol, x, y)
+  }
+
+  private checkThatMoveIsValid(symbol: string, x: number, y: number) {
     // if first move
     if (this._lastSymbol === ' ') {
       // if player is X
@@ -20,10 +27,6 @@ export class Game {
     if (this._board.TileAt(x, y).Symbol !== ' ') {
       throw new Error('Invalid position')
     }
-
-    // update game state
-    this._lastSymbol = symbol
-    this._board.AddTileAt(symbol, x, y)
   }
 
   public Winner (): string {

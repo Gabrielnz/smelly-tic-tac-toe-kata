@@ -103,4 +103,15 @@ describe('TicTacToe game', () => {
 
     expect(winner).toBe(Player.O)
   })
+
+  it('should not declare any player as a winner when there are moves left to be made', () => {
+    game.Play(Player.X, 0, 0)
+    game.Play(Player.O, 2, 0)
+    game.Play(Player.X, 1, 1)
+    game.Play(Player.O, 2, 1)
+
+    const winner = game.Winner()
+
+    expect(winner).toBe(Player.None)
+  })
 })

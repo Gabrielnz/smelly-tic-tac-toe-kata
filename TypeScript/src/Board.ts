@@ -1,4 +1,4 @@
-import { Tile } from "./Tile";
+import { Player, Tile } from "./Tile";
 
 export class Board {
     private readonly _plays: Tile[] = [];
@@ -6,7 +6,7 @@ export class Board {
     constructor() {
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
-                const tile: Tile = { X: i, Y: j, Symbol: ' ' };
+                const tile: Tile = { X: i, Y: j, player: Player.None };
                 this._plays.push(tile);
             }
         }
@@ -16,7 +16,7 @@ export class Board {
         return this._plays.find((t: Tile) => t.X === x && t.Y === y)!;
     }
 
-    public AddTileAt(symbol: string, x: number, y: number): void {
-        this._plays.find((t: Tile) => t.X === x && t.Y === y)!.Symbol = symbol;
+    public AddTileAt(player: Player, x: number, y: number): void {
+        this._plays.find((t: Tile) => t.X === x && t.Y === y)!.player = player;
     }
 }

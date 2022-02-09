@@ -6,7 +6,10 @@ export class Game {
 
   public Play (player: string, x: number, y: number): void {
     this.checkThatMoveIsValid(player, x, y)
-    // update game state
+    this.makePlayerMove(player, x, y)
+  }
+
+  private makePlayerMove(player: string, x: number, y: number) {
     this.lastPlayer = player
     this.board.AddTileAt(player, x, y)
   }

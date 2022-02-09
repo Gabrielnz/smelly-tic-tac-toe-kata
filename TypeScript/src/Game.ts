@@ -15,8 +15,7 @@ export class Game {
   }
 
   private checkThatMoveIsValid(symbol: string, x: number, y: number) {
-    // if first move
-    if (this.lastPlayer === ' ') {
+    if (this.isFirstMove()) {
       // if player is X
       if (symbol === 'O') {
         throw new Error('Invalid first player')
@@ -30,6 +29,10 @@ export class Game {
     if (this.board.TileAt(x, y).Symbol !== ' ') {
       throw new Error('Invalid position')
     }
+  }
+
+  private isFirstMove() {
+    return this.lastPlayer === ' '
   }
 
   public Winner (): string {

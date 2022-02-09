@@ -15,10 +15,8 @@ export class Game {
   }
 
   private checkThatMoveIsValid(symbol: string, x: number, y: number) {
-    if (this.isFirstMove()) {
-      if (this.playerToMoveIsO(symbol)) {
-        throw new Error('Invalid first player')
-      }
+    if (this.isFirstMove() && this.playerToMoveIsO(symbol)) {
+      throw new Error('Invalid first player')
     }
     // if not first move but player repeated
     if (symbol === this.lastPlayer) {

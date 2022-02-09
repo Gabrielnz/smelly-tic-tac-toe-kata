@@ -6,10 +6,10 @@ export class Game {
 
   public Play (player: string, x: number, y: number): void {
     this.checkThatMoveIsValid(player, x, y)
-    this.makePlayerMove(player, x, y)
+    this.makeMove(player, x, y)
   }
 
-  private makePlayerMove(player: string, x: number, y: number) {
+  private makeMove(player: string, x: number, y: number) {
     this.lastPlayer = player
     this.board.AddTileAt(player, x, y)
   }
@@ -18,7 +18,7 @@ export class Game {
     if (this.isFirstMove() && this.playerToMoveIsO(player)) {
       throw new Error('Invalid first player')
     }
-    
+
     if (this.playerIsRepeated(player)) {
       throw new Error('Invalid next player')
     }

@@ -46,10 +46,7 @@ export class Game {
   }
 
   public Winner (): string {
-    // if the positions in first row are taken
-    if (this.board.TileHasBeenPlayed(0, 0) &&
-                this.board.TileHasBeenPlayed(0, 1) &&
-                this.board.TileHasBeenPlayed(0, 2)) {
+    if (this.topRowIsTaken()) {
       // if first row is full with same player
       if (this.board.TileAt(0, 0)!.player ===
                     this.board.TileAt(0, 1)!.player &&
@@ -85,6 +82,12 @@ export class Game {
     }
 
     return Player.None
+  }
+
+  private topRowIsTaken() {
+    return this.board.TileHasBeenPlayed(0, 0) &&
+      this.board.TileHasBeenPlayed(0, 1) &&
+      this.board.TileHasBeenPlayed(0, 2)
   }
 }
 

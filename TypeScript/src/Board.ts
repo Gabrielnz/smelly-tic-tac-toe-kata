@@ -23,7 +23,9 @@ export class Board {
         this._plays[x][y].player = player;
     }
 
-    public RowIsTakenBy(player: Player, row: number): Boolean {
-        return this._plays[row].every(tile => tile.player === player);
+    public AnyRowIsTakenBy(player: Player): Boolean {
+        return this._plays[0].every(tile => tile.player === player) ||
+            this._plays[1].every(tile => tile.player === player) ||
+            this._plays[2].every(tile => tile.player === player);
     }
 }

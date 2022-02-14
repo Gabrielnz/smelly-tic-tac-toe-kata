@@ -16,7 +16,7 @@ export class Game {
   }
 
   private checkThatMoveIsValid(player: Player, x: number, y: number) {
-    if (this.isFirstMove() && this.playerToMoveIsO(player)) {
+    if (this.isFirstMove() && this.secondPlayerIsTryingToMove(player)) {
       throw new Error('Invalid first player')
     }
 
@@ -37,7 +37,7 @@ export class Game {
     return player === this.lastPlayer
   }
 
-  private playerToMoveIsO(player: Player) {
+  private secondPlayerIsTryingToMove(player: Player) {
     return player === Player.O
   }
 
@@ -79,21 +79,21 @@ export class Game {
   }
 
   private bottomRowIsTaken() {
-    return this.board.TileHasBeenPlayed(2, 0) &&
-      this.board.TileHasBeenPlayed(2, 1) &&
-      this.board.TileHasBeenPlayed(2, 2)
+    return this.board.TileIsFilled(2, 0) &&
+      this.board.TileIsFilled(2, 1) &&
+      this.board.TileIsFilled(2, 2)
   }
 
   private middleRowIsTaken() {
-    return this.board.TileHasBeenPlayed(1, 0) &&
-      this.board.TileHasBeenPlayed(1, 1) &&
-      this.board.TileHasBeenPlayed(1, 2)
+    return this.board.TileIsFilled(1, 0) &&
+      this.board.TileIsFilled(1, 1) &&
+      this.board.TileIsFilled(1, 2)
   }
 
   private topRowIsTaken() {
-    return this.board.TileHasBeenPlayed(0, 0) &&
-      this.board.TileHasBeenPlayed(0, 1) &&
-      this.board.TileHasBeenPlayed(0, 2)
+    return this.board.TileIsFilled(0, 0) &&
+      this.board.TileIsFilled(0, 1) &&
+      this.board.TileIsFilled(0, 2)
   }
 }
 

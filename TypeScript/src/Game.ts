@@ -47,9 +47,9 @@ export class Game {
 
   public Winner (): string {
     // if the positions in first row are taken
-    if (this.board.TileAt(0, 0)!.player !== Player.None &&
-                this.board.TileAt(0, 1)!.player !== Player.None &&
-                this.board.TileAt(0, 2)!.player !== Player.None) {
+    if (this.board.TileHasBeenPlayed(0, 0) &&
+                this.board.TileHasBeenPlayed(0, 1) &&
+                this.board.TileHasBeenPlayed(0, 2)) {
       // if first row is full with same player
       if (this.board.TileAt(0, 0)!.player ===
                     this.board.TileAt(0, 1)!.player &&
@@ -59,9 +59,9 @@ export class Game {
     }
 
     // if the positions in first row are taken
-    if (this.board.TileAt(1, 0)!.player !== Player.None &&
-                this.board.TileAt(1, 1)!.player !== Player.None &&
-                this.board.TileAt(1, 2)!.player !== Player.None) {
+    if (this.board.TileHasBeenPlayed(1, 0) &&
+                this.board.TileHasBeenPlayed(1, 1) &&
+                this.board.TileHasBeenPlayed(1, 2)) {
       // if middle row is full with same player
       if (this.board.TileAt(1, 0)!.player ===
                     this.board.TileAt(1, 1)!.player &&
@@ -72,9 +72,9 @@ export class Game {
     }
 
     // if the positions in first row are taken
-    if (this.board.TileAt(2, 0)!.player !== Player.None &&
-                this.board.TileAt(2, 1)!.player !== Player.None &&
-                this.board.TileAt(2, 2)!.player !== Player.None) {
+    if (this.board.TileHasBeenPlayed(2, 0) &&
+                this.board.TileHasBeenPlayed(2, 1) &&
+                this.board.TileHasBeenPlayed(2, 2)) {
       // if middle row is full with same player
       if (this.board.TileAt(2, 0)!.player ===
                     this.board.TileAt(2, 1)!.player &&

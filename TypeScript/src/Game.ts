@@ -83,22 +83,16 @@ export class Game {
       this.board.TileHasPlayer(player, 0, 2)
   }
 
-  private bottomRowIsTaken() {
+  private bottomRowIsTaken(): Boolean {
     return this.board.TileIsFilled(2, 0) &&
       this.board.TileIsFilled(2, 1) &&
       this.board.TileIsFilled(2, 2)
   }
 
-  private middleRowIsTaken() {
+  private middleRowIsTaken(): Boolean {
     return this.board.TileIsFilled(1, 0) &&
       this.board.TileIsFilled(1, 1) &&
       this.board.TileIsFilled(1, 2)
-  }
-
-  private topRowIsTaken() {
-    return this.board.TileIsFilled(0, 0) &&
-      this.board.TileIsFilled(0, 1) &&
-      this.board.TileIsFilled(0, 2)
   }
 }
 

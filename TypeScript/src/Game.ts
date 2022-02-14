@@ -62,14 +62,12 @@ export class Game {
       return Player.O
     }
 
-    if (this.bottomRowIsTaken()) {
-      // if middle row is full with same player
-      if (this.board.TileAt(2, 0)!.player ===
-                    this.board.TileAt(2, 1)!.player &&
-                    this.board.TileAt(2, 2)!.player ===
-                            this.board.TileAt(2, 1)!.player) {
-        return this.board.TileAt(2, 0)!.player
-      }
+    if (this.bottomRowIsTakenBy(Player.X)) {
+      return Player.X
+    }
+
+    if (this.bottomRowIsTakenBy(Player.O)) {
+      return Player.O
     }
 
     return Player.None
@@ -87,9 +85,9 @@ export class Game {
       this.board.TileHasPlayer(player, 1, 2)
   }
 
-  private bottomRowIsTaken(): Boolean {
-    return this.board.TileIsFilled(2, 0) &&
-      this.board.TileIsFilled(2, 1) &&
-      this.board.TileIsFilled(2, 2)
+  private bottomRowIsTakenBy(player: Player): Boolean {
+    return this.board.TileHasPlayer(player, 2, 0) &&
+      this.board.TileHasPlayer(player, 2, 1) &&
+      this.board.TileHasPlayer(player, 2, 2)
   }
 }

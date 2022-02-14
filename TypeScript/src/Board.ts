@@ -16,10 +16,6 @@ export class Board {
         return this._plays.find((t: Tile) => t.X === x && t.Y === y)!;
     }
 
-    public TileIsFilled(x: number, y: number): Boolean {
-        return this.TileAt(x, y).player !== Player.None;
-    }
-
     public TileHasPlayer(player: Player, x: number, y: number): Boolean {
         return this.TileAt(x, y).player === player;
     }

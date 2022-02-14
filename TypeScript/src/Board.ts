@@ -24,8 +24,6 @@ export class Board {
     }
 
     public AnyRowIsTakenBy(player: Player): Boolean {
-        return this._plays[0].every(tile => tile.player === player) ||
-            this._plays[1].every(tile => tile.player === player) ||
-            this._plays[2].every(tile => tile.player === player);
+        return this._plays.some(row => row.every(tile => tile.player === player));
     }
 }

@@ -48,10 +48,16 @@ export class Game {
   public Winner (): string {
     if (this.topRowIsTaken()) {
       // if first row is full with same player
-      if (this.board.TileAt(0, 0)!.player ===
-                    this.board.TileAt(0, 1)!.player &&
-                    this.board.TileAt(0, 2)!.player === this.board.TileAt(0, 1)!.player) {
-        return this.board.TileAt(0, 0)!.player
+      if (this.board.TileHasPlayer(Player.X, 0, 0) &&
+                    this.board.TileHasPlayer(Player.X, 0, 1) &&
+                    this.board.TileHasPlayer(Player.X, 0, 2)) {
+        return Player.X
+      }
+
+      if (this.board.TileHasPlayer(Player.O, 0, 0) &&
+                    this.board.TileHasPlayer(Player.O, 0, 1) &&
+                    this.board.TileHasPlayer(Player.O, 0, 2)) {
+        return Player.O
       }
     }
 

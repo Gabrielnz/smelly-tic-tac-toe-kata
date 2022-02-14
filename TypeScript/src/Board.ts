@@ -20,6 +20,10 @@ export class Board {
         return this.TileAt(x, y).player !== Player.None;
     }
 
+    public TileHasPlayer(player: Player, x: number, y: number): Boolean {
+        return this.TileAt(x, y).player === player;
+    }
+
     public AddTileAt(player: Player, x: number, y: number): void {
         this._plays.find((t: Tile) => t.X === x && t.Y === y)!.player = player;
     }

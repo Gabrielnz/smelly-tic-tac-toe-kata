@@ -65,10 +65,7 @@ export class Game {
       }
     }
 
-    // if the positions in first row are taken
-    if (this.board.TileHasBeenPlayed(2, 0) &&
-                this.board.TileHasBeenPlayed(2, 1) &&
-                this.board.TileHasBeenPlayed(2, 2)) {
+    if (this.bottomRowIsTaken()) {
       // if middle row is full with same player
       if (this.board.TileAt(2, 0)!.player ===
                     this.board.TileAt(2, 1)!.player &&
@@ -79,6 +76,12 @@ export class Game {
     }
 
     return Player.None
+  }
+
+  private bottomRowIsTaken() {
+    return this.board.TileHasBeenPlayed(2, 0) &&
+      this.board.TileHasBeenPlayed(2, 1) &&
+      this.board.TileHasBeenPlayed(2, 2)
   }
 
   private middleRowIsTaken() {

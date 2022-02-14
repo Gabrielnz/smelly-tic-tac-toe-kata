@@ -22,4 +22,8 @@ export class Board {
     public AddTileAt(player: Player, x: number, y: number): void {
         this._plays[x][y].player = player;
     }
+
+    public RowIsTakenBy(player: Player, row: number): Boolean {
+        return this._plays[row].every(tile => tile.player === player);
+    }
 }

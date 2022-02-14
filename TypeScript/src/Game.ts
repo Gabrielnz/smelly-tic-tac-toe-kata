@@ -74,20 +74,14 @@ export class Game {
   }
 
   private topRowIsTakenBy(player: Player): Boolean {
-    return this.board.TileHasPlayer(player, 0, 0) &&
-      this.board.TileHasPlayer(player, 0, 1) &&
-      this.board.TileHasPlayer(player, 0, 2)
+    return this.board.RowIsTakenBy(player, 0);
   }
 
   private middleRowIsTakenBy(player: Player): Boolean {
-    return this.board.TileHasPlayer(player, 1, 0) &&
-      this.board.TileHasPlayer(player, 1, 1) &&
-      this.board.TileHasPlayer(player, 1, 2)
+    return this.board.RowIsTakenBy(player, 1);
   }
 
   private bottomRowIsTakenBy(player: Player): Boolean {
-    return this.board.TileHasPlayer(player, 2, 0) &&
-      this.board.TileHasPlayer(player, 2, 1) &&
-      this.board.TileHasPlayer(player, 2, 2)
+    return this.board.RowIsTakenBy(player, 2);
   }
 }

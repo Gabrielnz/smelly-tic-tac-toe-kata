@@ -47,16 +47,11 @@ export class Game {
 
   public Winner (): string {
     if (this.topRowIsTaken()) {
-      // if first row is full with same player
-      if (this.board.TileHasPlayer(Player.X, 0, 0) &&
-                    this.board.TileHasPlayer(Player.X, 0, 1) &&
-                    this.board.TileHasPlayer(Player.X, 0, 2)) {
+      if (this.topRowIsTakenBy(Player.X)) {
         return Player.X
       }
 
-      if (this.board.TileHasPlayer(Player.O, 0, 0) &&
-                    this.board.TileHasPlayer(Player.O, 0, 1) &&
-                    this.board.TileHasPlayer(Player.O, 0, 2)) {
+      if (this.topRowIsTakenBy(Player.O)) {
         return Player.O
       }
     }
@@ -82,6 +77,12 @@ export class Game {
     }
 
     return Player.None
+  }
+
+  private topRowIsTakenBy(player: Player): Boolean {
+    return this.board.TileHasPlayer(player, 0, 0) &&
+      this.board.TileHasPlayer(player, 0, 1) &&
+      this.board.TileHasPlayer(player, 0, 2)
   }
 
   private bottomRowIsTaken() {

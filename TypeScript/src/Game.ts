@@ -46,27 +46,11 @@ export class Game {
   }
 
   public Winner (): string {
-    if (this.topRowIsTakenBy(Player.X)) {
+    if (this.topRowIsTakenBy(Player.X) || this.middleRowIsTakenBy(Player.X) || this.bottomRowIsTakenBy(Player.X)) {
       return Player.X
     }
 
-    if (this.topRowIsTakenBy(Player.O)) {
-      return Player.O
-    }
-
-    if (this.middleRowIsTakenBy(Player.X)) {
-      return Player.X
-    }
-
-    if (this.middleRowIsTakenBy(Player.O)) {
-      return Player.O
-    }
-
-    if (this.bottomRowIsTakenBy(Player.X)) {
-      return Player.X
-    }
-
-    if (this.bottomRowIsTakenBy(Player.O)) {
+    if (this.topRowIsTakenBy(Player.O) ||this.middleRowIsTakenBy(Player.O) || this.bottomRowIsTakenBy(Player.O)) {
       return Player.O
     }
 

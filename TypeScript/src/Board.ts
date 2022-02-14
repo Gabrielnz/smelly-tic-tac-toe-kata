@@ -1,19 +1,18 @@
 import { Player, Tile } from "./Tile";
 
 export class Board {
-    private readonly _plays: Tile[] = [];
+    private readonly _plays: Tile[][];
 
     constructor() {
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
-                const tile: Tile = { X: i, Y: j, player: Player.None };
-                this._plays.push(tile);
-            }
-        }
+        this._plays = [
+            [{ X: 0, Y: 0, player: Player.None }, { X: 1, Y: 0, player: Player.None }, { X: 2, Y: 0, player: Player.None }],
+            [{ X: 0, Y: 1, player: Player.None }, { X: 1, Y: 1, player: Player.None }, { X: 2, Y: 1, player: Player.None }],
+            [{ X: 0, Y: 2, player: Player.None }, { X: 1, Y: 2, player: Player.None }, { X: 2, Y: 2, player: Player.None }]
+        ]
     }
 
     public TileAt(x: number, y: number): Tile {
-        return this._plays.find((t: Tile) => t.X === x && t.Y === y)!;
+        return this._plays[x][y];
     }
 
     public TileHasPlayer(player: Player, x: number, y: number): Boolean {
@@ -21,6 +20,6 @@ export class Board {
     }
 
     public AddTileAt(player: Player, x: number, y: number): void {
-        this._plays.find((t: Tile) => t.X === x && t.Y === y)!.player = player;
+        this._plays[x][y].player = player;
     }
 }

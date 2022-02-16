@@ -16,11 +16,11 @@ export class Game {
   }
 
   public Winner (): string {
-    if (this.board.AnyRowIsTakenBy2(Player.X)) {
+    if (this.board.AnyRowIsTakenBy(Player.X)) {
       return Player.X
     }
 
-    if (this.board.AnyRowIsTakenBy2(Player.O)) {
+    if (this.board.AnyRowIsTakenBy(Player.O)) {
       return Player.O
     }
 
@@ -36,14 +36,14 @@ export class Game {
       throw new Error('Invalid next player')
     }
 
-    if (this.board.TileIsTaken2(position)) {
+    if (this.board.TileIsTaken(position)) {
       throw new Error('Invalid position')
     }
   }
 
   private makeMove(player: Player, position: Position) {
     this.lastPlayer = player
-    this.board.AddTileAt2(player, position)
+    this.board.AddTileAt(player, position)
   }
 
   private playerIsRepeated(player: Player) {

@@ -1,6 +1,5 @@
 export interface Tile {
-    X: number;
-    Y: number;
+    position?: Position;
     player: Player;
 }
 
@@ -8,4 +7,16 @@ export enum Player {
     X = 'X',
     O = 'O',
     None = ' '
+}
+
+export enum Position {
+    TopLeft,
+    TopMiddle,
+    TopRight,
+    MiddleLeft,
+    Middle,
+    MiddleRight,
+    BottomLeft,
+    BottomMiddle,
+    BottomRight
 }

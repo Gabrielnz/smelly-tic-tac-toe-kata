@@ -1,28 +1,33 @@
 import { Board } from "./Board"
-import { Player } from "./Tile"
+import { Player, Position } from "./Tile"
 
 export class Game {
   private lastPlayer: Player = Player.None
   private readonly board: Board = new Board()
+  private readonly coordinatesToPosition: Position[][] = [
+    [Position.TopLeft, Position.TopMiddle, Position.TopRight],
+    [Position.MiddleLeft, Position.Middle, Position.MiddleRight],
+    [Position.BottomLeft, Position.BottomMiddle, Position.BottomRight]
+  ]
 
   public Play (player: Player, x: number, y: number): void {
-    this.checkThatMoveIsValid(player, x, y)
-    this.makeMove(player, x, y)
+    this.checkThatMoveIsValid(player, this.coordinatesToPosition[x][y])
+    this.makeMove(player, this.coordinatesToPosition[x][y])
   }
 
   public Winner (): string {
-    if (this.board.AnyRowIsTakenBy(Player.X)) {
+    if (this.board.AnyRowIsTakenBy2(Player.X)) {
       return Player.X
     }
 
-    if (this.board.AnyRowIsTakenBy(Player.O)) {
+    if (this.board.AnyRowIsTakenBy2(Player.O)) {
       return Player.O
     }
 
     return Player.None
   }
 
-  private checkThatMoveIsValid(player: Player, x: number, y: number) {
+  private checkThatMoveIsValid(player: Player, position: Position) {
     if (this.isFirstMove() && this.secondPlayerIsTryingToMove(player)) {
       throw new Error('Invalid first player')
     }
@@ -31,14 +36,14 @@ export class Game {
       throw new Error('Invalid next player')
     }
 
-    if (this.board.TileIsTaken(x, y)) {
+    if (this.board.TileIsTaken2(position)) {
       throw new Error('Invalid position')
     }
   }
 
-  private makeMove(player: Player, x: number, y: number) {
+  private makeMove(player: Player, position: Position) {
     this.lastPlayer = player
-    this.board.AddTileAt(player, x, y)
+    this.board.AddTileAt2(player, position)
   }
 
   private playerIsRepeated(player: Player) {

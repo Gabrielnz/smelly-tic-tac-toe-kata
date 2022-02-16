@@ -20,10 +20,7 @@ export class Board {
     }
 
     public AnyRowIsTakenBy(player: Player): Boolean {
-        const topRow = this.isTopRowTakenBy(player);
-        const middleRow = this.isMiddleRowTakenBy(player);
-        const bottomRow = this.isBottomRowTakenBy(player);
-        return topRow || middleRow || bottomRow;
+        return this.isTopRowTakenBy(player) || this.isMiddleRowTakenBy(player) || this.isBottomRowTakenBy(player);
     }
 
     private isBottomRowTakenBy(player: Player) {

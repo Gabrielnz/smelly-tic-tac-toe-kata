@@ -10,6 +10,18 @@ export class Game {
     this.makeMove(player, x, y)
   }
 
+  public Winner (): string {
+    if (this.board.AnyRowIsTakenBy(Player.X)) {
+      return Player.X
+    }
+
+    if (this.board.AnyRowIsTakenBy(Player.O)) {
+      return Player.O
+    }
+
+    return Player.None
+  }
+
   private makeMove(player: Player, x: number, y: number) {
     this.lastPlayer = player
     this.board.AddTileAt(player, x, y)
@@ -43,17 +55,5 @@ export class Game {
 
   private isFirstMove() {
     return this.lastPlayer === Player.None
-  }
-
-  public Winner (): string {
-    if (this.board.AnyRowIsTakenBy(Player.X)) {
-      return Player.X
-    }
-
-    if (this.board.AnyRowIsTakenBy(Player.O)) {
-      return Player.O
-    }
-
-    return Player.None
   }
 }

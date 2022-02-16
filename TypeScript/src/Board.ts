@@ -26,4 +26,8 @@ export class Board {
     public AnyRowIsTakenBy(player: Player): Boolean {
         return this._plays.some(row => row.every(tile => tile.player === player));
     }
+
+    public TileIsTaken(x: number, y: number): Boolean {
+        return this.TileAt(x, y).player !== Player.None;
+    }
 }

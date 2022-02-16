@@ -36,13 +36,9 @@ export class Game {
       throw new Error('Invalid next player')
     }
 
-    if (this.tileIsAlreadyPlayed(x, y)) {
+    if (this.board.TileIsTaken(x, y)) {
       throw new Error('Invalid position')
     }
-  }
-
-  private tileIsAlreadyPlayed(x: number, y: number) {
-    return this.board.TileAt(x, y).player !== Player.None
   }
 
   private playerIsRepeated(player: Player) {

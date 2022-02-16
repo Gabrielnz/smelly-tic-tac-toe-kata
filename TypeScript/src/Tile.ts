@@ -1,4 +1,3 @@
-
 export interface Tile {
     X: number;
     Y: number;

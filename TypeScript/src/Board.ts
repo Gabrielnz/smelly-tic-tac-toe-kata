@@ -1,11 +1,7 @@
 import { Player, Position } from "./Tile";
 
 export class Board {
-    private readonly _plays: Player[] = [];
-
-    constructor() {
-        this._plays = new Array(9).fill(Player.None);
-    }
+    private readonly _plays: Player[] = new Array(9).fill(Player.None);
 
     public TileAt(position: Position): Player {
         return this._plays[position];

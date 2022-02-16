@@ -22,11 +22,6 @@ export class Game {
     return Player.None
   }
 
-  private makeMove(player: Player, x: number, y: number) {
-    this.lastPlayer = player
-    this.board.AddTileAt(player, x, y)
-  }
-
   private checkThatMoveIsValid(player: Player, x: number, y: number) {
     if (this.isFirstMove() && this.secondPlayerIsTryingToMove(player)) {
       throw new Error('Invalid first player')
@@ -39,6 +34,11 @@ export class Game {
     if (this.board.TileIsTaken(x, y)) {
       throw new Error('Invalid position')
     }
+  }
+
+  private makeMove(player: Player, x: number, y: number) {
+    this.lastPlayer = player
+    this.board.AddTileAt(player, x, y)
   }
 
   private playerIsRepeated(player: Player) {

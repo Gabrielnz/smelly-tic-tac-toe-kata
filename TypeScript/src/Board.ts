@@ -4,15 +4,7 @@ export class Board {
     private readonly _newPlays: Player[] = [];
 
     constructor() {
-        this._newPlays[Position.TopLeft] = Player.None;
-        this._newPlays[Position.TopMiddle] = Player.None;
-        this._newPlays[Position.TopRight] = Player.None;
-        this._newPlays[Position.MiddleLeft] = Player.None;
-        this._newPlays[Position.Middle] = Player.None;
-        this._newPlays[Position.MiddleRight] = Player.None;
-        this._newPlays[Position.BottomLeft] = Player.None;
-        this._newPlays[Position.BottomMiddle] = Player.None;
-        this._newPlays[Position.BottomRight] = Player.None;
+        this._newPlays = new Array(9).fill(Player.None);
     }
 
     public TileAt2(position: Position): Player {

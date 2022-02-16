@@ -4,15 +4,15 @@ import { Player, Position } from "./Tile"
 export class Game {
   private lastPlayer: Player = Player.None
   private readonly board: Board = new Board()
-  private readonly mapCoordinatesToPosition: Position[][] = [
+  private readonly mapPositionFromCoordinates: Position[][] = [
     [Position.TopLeft, Position.TopMiddle, Position.TopRight],
     [Position.MiddleLeft, Position.Middle, Position.MiddleRight],
     [Position.BottomLeft, Position.BottomMiddle, Position.BottomRight]
   ]
 
   public Play (player: Player, x: number, y: number): void {
-    this.checkThatMoveIsValid(player, this.mapCoordinatesToPosition[x][y])
-    this.makeMove(player, this.mapCoordinatesToPosition[x][y])
+    this.checkThatMoveIsValid(player, this.mapPositionFromCoordinates[x][y])
+    this.makeMove(player, this.mapPositionFromCoordinates[x][y])
   }
 
   public Winner (): string {

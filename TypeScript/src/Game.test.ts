@@ -14,7 +14,7 @@ describe('TicTacToe game', () => {
   })
 
   it('should not allow player x to play twice in a row', () => {
-    game.Play(Player.X, 0, 0)
+    game.Play2(Player.X, Position.TopLeft)
     expect(() => game.Play2(Player.X, Position.MiddleLeft)).toThrow()
   })
 

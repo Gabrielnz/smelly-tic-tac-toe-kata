@@ -19,8 +19,8 @@ describe('TicTacToe game', () => {
   })
 
   it('should not allow a player to play in last played position', () => {
-    game.Play(Player.X, 0, 0)
-    expect(() => game.Play(Player.O, 0, 0)).toThrow()
+    game.Play2(Player.X, Position.TopLeft)
+    expect(() => game.Play2(Player.O, Position.TopLeft)).toThrow()
   })
 
   it('should not allow a player to play in any played position', () => {

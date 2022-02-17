@@ -42,12 +42,12 @@ describe('TicTacToe game', () => {
   })
 
   it('should declare player O as winner if it plays three in top row', () => {
-    game.Play(Player.X, 1, 0)
-    game.Play(Player.O, 0, 0)
-    game.Play(Player.X, 1, 1)
-    game.Play(Player.O, 0, 1)
-    game.Play(Player.X, 2, 2)
-    game.Play(Player.O, 0, 2)
+    game.Play2(Player.X, Position.MiddleLeft)
+    game.Play2(Player.O, Position.TopLeft)
+    game.Play2(Player.X, Position.Middle)
+    game.Play2(Player.O, Position.TopMiddle)
+    game.Play2(Player.X, Position.BottomRight)
+    game.Play2(Player.O, Position.TopRight)
 
     const winner = game.Winner()
 

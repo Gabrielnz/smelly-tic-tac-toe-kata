@@ -5,7 +5,7 @@ export class Game {
   private lastPlayer: Player = Player.None
   private readonly board: Board = new Board()
 
-  public Play2 (player: Player, position: Position): void {
+  public Play (player: Player, position: Position): void {
     this.checkThatMoveIsValid(player, position)
     this.makeMove(player, position)
   }

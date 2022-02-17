@@ -1,7 +1,7 @@
 
 import { Game } from './Game'
-import { Player } from "./Player"
-import { Position } from "./Position"
+import { Player } from './Player'
+import { Position } from './Position'
 
 describe('TicTacToe game', () => {
   let game: Game
@@ -29,7 +29,7 @@ describe('TicTacToe game', () => {
   it('should not allow a player to play in any played position', () => {
     game.Play(Player.X, Position.TopLeft)
     game.Play(Player.O, Position.MiddleLeft)
-    
+
     expect(() => game.Play(Player.X, Position.TopLeft)).toThrow()
   })
 

@@ -1,6 +1,6 @@
-import { Board } from "./Board"
-import { Player } from "./Player"
-import { Position } from "./Position"
+import { Board } from './Board'
+import { Player } from './Player'
+import { Position } from './Position'
 
 export class Game {
   private lastPlayer: Player = Player.None
@@ -23,7 +23,7 @@ export class Game {
     return Player.None
   }
 
-  private checkThatMoveIsValid(player: Player, position: Position) {
+  private checkThatMoveIsValid (player: Player, position: Position): void {
     if (this.isFirstMove() && this.secondPlayerIsTryingToMove(player)) {
       throw new Error('Invalid first player')
     }
@@ -37,20 +37,20 @@ export class Game {
     }
   }
 
-  private makeMove(player: Player, position: Position) {
+  private makeMove (player: Player, position: Position): void {
     this.lastPlayer = player
     this.board.AddTileAt(player, position)
   }
 
-  private playerIsRepeated(player: Player) {
+  private playerIsRepeated (player: Player): boolean {
     return player === this.lastPlayer
   }
 
-  private secondPlayerIsTryingToMove(player: Player) {
+  private secondPlayerIsTryingToMove (player: Player): boolean {
     return player === Player.O
   }
 
-  private isFirstMove() {
+  private isFirstMove (): boolean {
     return this.lastPlayer === Player.None
   }
 }

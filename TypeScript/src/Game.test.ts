@@ -105,10 +105,10 @@ describe('TicTacToe game', () => {
   })
 
   it('should not declare any player as a winner when there are moves left to be made', () => {
-    game.Play(Player.X, 0, 0)
-    game.Play(Player.O, 2, 0)
-    game.Play(Player.X, 1, 1)
-    game.Play(Player.O, 2, 1)
+    game.Play2(Player.X, Position.TopLeft)
+    game.Play2(Player.O, Position.BottomLeft)
+    game.Play2(Player.X, Position.Middle)
+    game.Play2(Player.O, Position.BottomMiddle)
 
     const winner = game.Winner()
 

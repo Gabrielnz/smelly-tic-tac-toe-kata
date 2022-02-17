@@ -1,8 +1,3 @@
-export enum Player {
-    X = 'X',
-    O = 'O',
-    None = ' '
-}
 
 export enum Position {
     TopLeft,

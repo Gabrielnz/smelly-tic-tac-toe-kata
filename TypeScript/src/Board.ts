@@ -1,4 +1,5 @@
-import { Player, Position } from "./Tile";
+import { Player } from "./Player";
+import { Position } from "./Position";
 
 export class Board {
     private readonly _plays: Player[] = new Array(9).fill(Player.None);

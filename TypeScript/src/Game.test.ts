@@ -1,6 +1,7 @@
 
 import { Game } from './Game'
-import { Player, Position } from './Tile'
+import { Player } from "./Player"
+import { Position } from "./Position"
 
 describe('TicTacToe game', () => {
   let game: Game

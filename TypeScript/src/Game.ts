@@ -1,5 +1,6 @@
 import { Board } from "./Board"
-import { Player, Position } from "./Tile"
+import { Player } from "./Player"
+import { Position } from "./Position"
 
 export class Game {
   private lastPlayer: Player = Player.None

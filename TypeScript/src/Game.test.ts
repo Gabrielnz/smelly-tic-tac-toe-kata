@@ -24,9 +24,9 @@ describe('TicTacToe game', () => {
   })
 
   it('should not allow a player to play in any played position', () => {
-    game.Play(Player.X, 0, 0)
-    game.Play(Player.O, 1, 0)
-    expect(() => game.Play(Player.X, 0, 0)).toThrow()
+    game.Play2(Player.X, Position.TopLeft)
+    game.Play2(Player.O, Position.MiddleLeft)
+    expect(() => game.Play2(Player.X, Position.TopLeft)).toThrow()
   })
 
   it('should declare player X as winner if it plays three in top row', () => {

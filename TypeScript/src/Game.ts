@@ -15,6 +15,11 @@ export class Game {
     this.makeMove(player, this.mapPositionFromCoordinates[x][y])
   }
 
+  public Play2 (player: Player, position: Position): void {
+    this.checkThatMoveIsValid(player, position)
+    this.makeMove(player, position)
+  }
+
   public Winner (): string {
     if (this.board.AnyRowIsTakenBy(Player.X)) {
       return Player.X

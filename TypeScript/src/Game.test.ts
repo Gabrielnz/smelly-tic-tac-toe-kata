@@ -1,6 +1,6 @@
 
 import { Game } from './Game'
-import { Player } from './Tile'
+import { Player, Position } from './Tile'
 
 describe('TicTacToe game', () => {
   let game: Game
@@ -10,7 +10,7 @@ describe('TicTacToe game', () => {
   })
 
   it('should not allow player O to play first', () => {
-    expect(() => game.Play(Player.O, 0, 0)).toThrow()
+    expect(() => game.Play2(Player.O, Position.TopLeft)).toThrow()
   })
 
   it('should not allow player x to play twice in a row', () => {

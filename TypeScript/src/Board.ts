@@ -20,15 +20,21 @@ export class Board {
     }
 
     private isBottomRowTakenBy(player: Player) {
-        return this._plays[Position.BottomLeft] === player && this._plays[Position.BottomMiddle] === player && this._plays[Position.BottomRight] === player;
+        return this._plays[Position.BottomLeft] === player
+            && this._plays[Position.BottomMiddle] === player
+            && this._plays[Position.BottomRight] === player;
     }
 
     private isMiddleRowTakenBy(player: Player) {
-        return this._plays[Position.MiddleLeft] === player && this._plays[Position.Middle] === player && this._plays[Position.MiddleRight] === player;
+        return this._plays[Position.MiddleLeft] === player
+            && this._plays[Position.Middle] === player
+            && this._plays[Position.MiddleRight] === player;
     }
 
     private isTopRowTakenBy(player: Player) {
-        return this._plays[Position.TopLeft] === player && this._plays[Position.TopMiddle] === player && this._plays[Position.TopRight] === player;
+        return this._plays[Position.TopLeft] === player
+            && this._plays[Position.TopMiddle] === player
+            && this._plays[Position.TopRight] === player;
     }
 
     public TileIsTaken(position: Position): Boolean {
